@@ -20,7 +20,8 @@ async def handle_group_message(ctx):
 
 async def etl_message(ctx):
     if ctx['message_format'] == 'array':
+        message_id = ctx['message_id']
         for i in ctx['message']:
             if i['type'] == 'text':
-                await handle_message(i['data']['text'])
+                await handle_message(i['data']['text'], message_id)
                 return

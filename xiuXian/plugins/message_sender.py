@@ -30,14 +30,18 @@ async def notification(message, seconds):
                              message=message)
 
 
+async def delete(message_id):
+    await bot.delete_msg(message_id=message_id)
+
+
 async def send(message):
     """
     :param message: 发送消息
     :return: 无
     """
-    res =  await bot.send_group_msg(group_id=config.group_id,
-                             message=MessageSegment.at(3889001741) + " " + message)
-    await bot.delete_msg(message_id=res['message_id'])
+    res = await bot.send_group_msg(group_id=config.group_id,
+                                   message=MessageSegment.at(3889001741) + " " + message)
+    await delete(res['message_id'])
 
 
 async def job(message, delay):
