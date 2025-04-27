@@ -35,28 +35,22 @@ def text_in_message(*messages):
     return decorator
 
 
-# 处理宗门任务刷新类型的消息
+# 处理任务完成并接取新任务的消息
 @text_in_message(
+    '传言山外村庄有邪修抢夺灵石，请道友下山为民除害',
+    '已刷新，道友当前接取的任务：狩猎邪修\n传言山外村庄有邪修抢夺灵石，请道友下山为民除害',
     '有少量弟子私下消费，私自架设小型窝点，请道友前去查抄',
     '山门将开，宗门急缺一批药草熬制九转丹，请道友下山购买',
     '在宗门外见到师弟欠了别人灵石被追打催债，请道友帮助其还清',
     '山下一月一度的市场又开张了，其中虽凡物较多，但是请道友慷慨解囊，为宗门购买一些蒙尘奇宝'
-)
-async def handle_task_refresh(message, message_id):
-    await job('宗门任务刷新', 61)
-
-
-# 处理任务完成并接取新任务的消息
-@text_in_message(
-    '传言山外村庄有邪修抢夺灵石，请道友下山为民除害',
-    '已刷新，道友当前接取的任务：狩猎邪修\n传言山外村庄有邪修抢夺灵石，请道友下山为民除害'
 )
 async def handle_task_completion(message, message_id):
     await send('宗门任务完成')
 
 
 @text_in_message(
-    '道友大战一番，气血减少'
+    '道友大战一番，气血减少',
+    '道友为了完成任务购买宝物消耗灵石'
 )
 async def handle_task_completion(message, message_id):
     await send('宗门任务接取')
