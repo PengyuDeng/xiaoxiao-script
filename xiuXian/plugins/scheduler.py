@@ -15,17 +15,17 @@ async def stop():
     await send("修仙签到")
 
 
-@nonebot.scheduler.scheduled_job('cron', hour='8', minute='1')
+@nonebot.scheduler.scheduled_job('cron', hour='9', minute='1')
 async def receive_herbal_medicine():
     await send("宗门丹药领取")
 
 
-@nonebot.scheduler.scheduled_job('cron', hour='8', minute='2')
+@nonebot.scheduler.scheduled_job('cron', hour='9', minute='2')
 async def auto_reward():
     await send("灵田结算")
 
 
-@nonebot.scheduler.scheduled_job('cron', hour='8', minute='3')
+@nonebot.scheduler.scheduled_job('cron', hour='9', minute='3')
 async def reward_family_task():
     """
     宗门任务接取
