@@ -6,7 +6,7 @@ import xiuXian.plugins.xiuxian_config as config
 from xiuXian.plugins.message_sender import send
 
 
-@nonebot.scheduler.scheduled_job('cron', hour='8', minute='0')
+@nonebot.scheduler.scheduled_job('cron', hour='9', minute='0')
 async def stop():
     """
     自动签到
